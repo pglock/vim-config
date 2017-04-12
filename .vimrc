@@ -98,11 +98,13 @@ Plug 'vim-airline/vim-airline-themes'
 set laststatus=2
 
 " jedi-vim: python autocomplete
-Plug 'davidhalter/jedi-vim' " install via vim-plug
+" Plug 'davidhalter/jedi-vim' " install via vim-plug
 " pacaur -S jedi-vim " install via pacaur on Arch Linux
 " the jedi python package needs to be installed
 " if you use pyenv, you can use https://github.com/jawshooah/pyenv-default-packages
 " to automatically install jedi in every python version
+
+Plug 'Valloric/YouCompleteMe', {'do': './install.py'}
 
 Plug 'morhetz/gruvbox'
 Plug 'ntpeters/vim-better-whitespace'
