@@ -54,6 +54,7 @@ vnoremap > >gv  " better indentation
 " You need to reload this file for the change to apply
 filetype off
 filetype plugin indent on
+filetype plugin on
 syntax on
 
 " Showing line numbers and length
@@ -108,7 +109,35 @@ Plug 'Valloric/YouCompleteMe', {'do': './install.py'}
 
 Plug 'morhetz/gruvbox'
 Plug 'ntpeters/vim-better-whitespace'
+
+Plug 'lervag/vimtex'
+Plug 'ajh17/VimCompletesMe'
+Plug 'vim-pandoc/vim-pandoc'
+Plug 'vim-pandoc/vim-pandoc-syntax'
+
+Plug 'scrooloose/nerdtree'
 call plug#end()
+
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
 set background=dark
 colorscheme gruvbox
+
+if !exists('g:ycm_semantic_triggers')
+    let g:ycm_semantic_triggers = {}
+  endif
+  let g:ycm_semantic_triggers.tex = [
+        \ 're!\\[A-Za-z]*cite[A-Za-z]*(\[[^]]*\]){0,2}{[^}]*',
+        \ 're!\\[A-Za-z]*ref({[^}]*|range{([^,{}]*(}{)?))',
+        \ 're!\\hyperref\[[^]]*',
+        \ 're!\\includegraphics\*?(\[[^]]*\]){0,2}{[^}]*',
+        \ 're!\\(include(only)?|input){[^}]*',
+        \ 're!\\\a*(gls|Gls|GLS)(pl)?\a*(\s*\[[^]]*\]){0,2}\s*\{[^}]*',
+        \ 're!\\includepdf(\s*\[[^]]*\])?\s*\{[^}]*',
+        \ 're!\\includestandalone(\s*\[[^]]*\])?\s*\{[^}]*',
+        \ 're!\\usepackage(\s*\[[^]]*\])?\s*\{[^}]*',
+        \ 're!\\documentclass(\s*\[[^]]*\])?\s*\{[^}]*',
+        \ 're!\\[A-Za-z]*',
+        \ ]
+
