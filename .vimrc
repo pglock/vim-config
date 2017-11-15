@@ -105,9 +105,9 @@ set laststatus=2
 " if you use pyenv, you can use https://github.com/jawshooah/pyenv-default-packages
 " to automatically install jedi in every python version
 
-Plug 'Valloric/YouCompleteMe', {'do': './install.py'}
-
-Plug 'morhetz/gruvbox'
+" Plug 'Valloric/YouCompleteMe'
+Plug 'ajh17/Spacegray.vim'
+Plug 'jacoborus/tender.vim'
 Plug 'ntpeters/vim-better-whitespace'
 
 Plug 'lervag/vimtex'
@@ -121,8 +121,9 @@ call plug#end()
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
-set background=dark
-colorscheme gruvbox
+colorscheme tender
+let g:airline_theme = 'tender'
+let macvim_skip_colorscheme=1
 
 if !exists('g:ycm_semantic_triggers')
     let g:ycm_semantic_triggers = {}
