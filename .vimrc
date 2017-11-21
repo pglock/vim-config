@@ -105,10 +105,12 @@ set laststatus=2
 " if you use pyenv, you can use https://github.com/jawshooah/pyenv-default-packages
 " to automatically install jedi in every python version
 
-" Plug 'Valloric/YouCompleteMe'
-Plug 'ajh17/Spacegray.vim'
-Plug 'jacoborus/tender.vim'
+Plug 'Valloric/YouCompleteMe'
+Plug 'flazz/vim-colorschemes'
+Plug 'chriskempson/base16-vim'
+Plug 'ryanoasis/vim-devicons'
 Plug 'ntpeters/vim-better-whitespace'
+Plug 'kien/rainbow_parentheses.vim'
 
 Plug 'lervag/vimtex'
 Plug 'ajh17/VimCompletesMe'
@@ -121,8 +123,15 @@ call plug#end()
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
-colorscheme tender
-let g:airline_theme = 'tender'
+set encoding=utf-8
+let base16colorspace=256
+set t_Co=256
+set guifont=monoki\ Nerd\ Font
+colorscheme base16-default-dark
+let g:airline_theme='base16_spacemacs'
+let g:airline_powerline_fonts=1
+let g:airline#extensions#tabline#enabled=1
+let g:airline#extensions#tabline#formatter='unique_tail'
 let macvim_skip_colorscheme=1
 
 if !exists('g:ycm_semantic_triggers')
