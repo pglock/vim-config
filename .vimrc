@@ -1,6 +1,8 @@
 " Automatic reloading of .vimrc
 autocmd! bufwritepost .vimrc source %
 
+set noerrorbells visualbell t_vb=
+
 
 " Better copy & paste
 " When you want to paste large blocks of code into vim, press F2 before you
@@ -116,6 +118,7 @@ Plug 'lervag/vimtex'
 Plug 'ajh17/VimCompletesMe'
 Plug 'vim-pandoc/vim-pandoc'
 Plug 'vim-pandoc/vim-pandoc-syntax'
+Plug 'vim-scripts/taglist.vim'
 
 Plug 'scrooloose/nerdtree'
 call plug#end()
@@ -126,7 +129,7 @@ autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 set encoding=utf-8
 let base16colorspace=256
 set t_Co=256
-set guifont=monoki\ Nerd\ Font
+set guifont=mononoki\ Nerd\ Font
 colorscheme base16-default-dark
 let g:airline_theme='base16_spacemacs'
 let g:airline_powerline_fonts=1
@@ -151,3 +154,5 @@ if !exists('g:ycm_semantic_triggers')
         \ 're!\\[A-Za-z]*',
         \ ]
 
+let Tlist_Use_Right_Window=1
+nnoremap <silent> <F8> :TlistToggle<CR>
