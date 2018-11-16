@@ -100,16 +100,7 @@ Plug 'vim-airline/vim-airline-themes'
 " statusline should always appear
 set laststatus=2
 
-" jedi-vim: python autocomplete
-" Plug 'davidhalter/jedi-vim' " install via vim-plug
-" pacaur -S jedi-vim " install via pacaur on Arch Linux
-" the jedi python package needs to be installed
-" if you use pyenv, you can use https://github.com/jawshooah/pyenv-default-packages
-" to automatically install jedi in every python version
-
 Plug 'flazz/vim-colorschemes'
-Plug 'chriskempson/base16-vim'
-Plug 'ryanoasis/vim-devicons'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'kien/rainbow_parentheses.vim'
 
@@ -118,14 +109,11 @@ Plug 'ajh17/VimCompletesMe'
 Plug 'vim-pandoc/vim-pandoc'
 Plug 'vim-pandoc/vim-pandoc-syntax'
 Plug 'dikiaap/minimalist'
-Plug 'scrooloose/nerdtree'
 call plug#end()
 
 autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
 set encoding=utf-8
-let base16colorspace=256
 set t_Co=256
 colorscheme minimalist
 let g:airline_theme='minimalist'
