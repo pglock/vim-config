@@ -11,7 +11,7 @@ set noerrorbells visualbell t_vb=
 "" set pastetoggle=<F2>
 set clipboard=unnamed
 
-set termguicolors
+" set termguicolors
 
 " Mouse and backspace
 set mouse=a  " on OSX press ALT and click
@@ -61,7 +61,7 @@ syntax on
 
 " Showing line numbers and length
 set number  " show line numbers
-set tw=79   " width of document (used by gd)
+set tw=99   " width of document (used by gd)
 set nowrap  " don't automatically wrap on load
 set fo-=t   " don't automatically wrap text when typing
 set colorcolumn=120
@@ -107,7 +107,6 @@ set laststatus=2
 " if you use pyenv, you can use https://github.com/jawshooah/pyenv-default-packages
 " to automatically install jedi in every python version
 
-Plug 'Valloric/YouCompleteMe'
 Plug 'flazz/vim-colorschemes'
 Plug 'chriskempson/base16-vim'
 Plug 'ryanoasis/vim-devicons'
@@ -118,8 +117,7 @@ Plug 'lervag/vimtex'
 Plug 'ajh17/VimCompletesMe'
 Plug 'vim-pandoc/vim-pandoc'
 Plug 'vim-pandoc/vim-pandoc-syntax'
-Plug 'vim-scripts/taglist.vim'
-
+Plug 'dikiaap/minimalist'
 Plug 'scrooloose/nerdtree'
 call plug#end()
 
@@ -129,30 +127,11 @@ autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 set encoding=utf-8
 let base16colorspace=256
 set t_Co=256
-set guifont=mononoki\ Nerd\ Font
-colorscheme base16-default-dark
-let g:airline_theme='base16_spacemacs'
+colorscheme minimalist
+let g:airline_theme='minimalist'
 let g:airline_powerline_fonts=1
 let g:airline#extensions#tabline#enabled=1
-let g:airline#extensions#tabline#formatter='unique_tail'
 let macvim_skip_colorscheme=1
-
-if !exists('g:ycm_semantic_triggers')
-    let g:ycm_semantic_triggers = {}
-  endif
-  let g:ycm_semantic_triggers.tex = [
-        \ 're!\\[A-Za-z]*cite[A-Za-z]*(\[[^]]*\]){0,2}{[^}]*',
-        \ 're!\\[A-Za-z]*ref({[^}]*|range{([^,{}]*(}{)?))',
-        \ 're!\\hyperref\[[^]]*',
-        \ 're!\\includegraphics\*?(\[[^]]*\]){0,2}{[^}]*',
-        \ 're!\\(include(only)?|input){[^}]*',
-        \ 're!\\\a*(gls|Gls|GLS)(pl)?\a*(\s*\[[^]]*\]){0,2}\s*\{[^}]*',
-        \ 're!\\includepdf(\s*\[[^]]*\])?\s*\{[^}]*',
-        \ 're!\\includestandalone(\s*\[[^]]*\])?\s*\{[^}]*',
-        \ 're!\\usepackage(\s*\[[^]]*\])?\s*\{[^}]*',
-        \ 're!\\documentclass(\s*\[[^]]*\])?\s*\{[^}]*',
-        \ 're!\\[A-Za-z]*',
-        \ ]
 
 let Tlist_Use_Right_Window=1
 nnoremap <silent> <F8> :TlistToggle<CR>
